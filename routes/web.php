@@ -3,7 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
-Route::get('/', function () {
+use App\Livewire\Pages\Instrucoes;
+
+Route::get('/', Instrucoes::class);
+
+Route::get('/home', function () {
     return view('welcome');
 })->name('home');
 
