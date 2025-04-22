@@ -52,36 +52,45 @@
 
                 <flux:menu class="w-[220px]">
                     <flux:menu.radio.group>
+                        <!-- Exibe as informações do usuário logado, como iniciais, nome e e-mail -->
                         <div class="p-0 text-sm font-normal">
                             <div class="flex items-center gap-2 px-1 py-1.5 text-start text-sm">
+                                <!-- Avatar do usuário com as iniciais -->
                                 <span class="relative flex h-8 w-8 shrink-0 overflow-hidden rounded-lg">
                                     <span
                                         class="flex h-full w-full items-center justify-center rounded-lg bg-neutral-200 text-black dark:bg-neutral-700 dark:text-white"
                                     >
-                                        {{ auth()->user()->initials() }}
+                                        {{ auth()->user()->initials() }} <!-- Iniciais do usuário -->
                                     </span>
                                 </span>
 
+                                <!-- Informações do usuário: nome e e-mail -->
                                 <div class="grid flex-1 text-start text-sm leading-tight">
-                                    <span class="truncate font-semibold">{{ auth()->user()->name }}</span>
-                                    <span class="truncate text-xs">{{ auth()->user()->email }}</span>
+                                    <span class="truncate font-semibold">{{ auth()->user()->name }}</span> <!-- Nome do usuário -->
+                                    <span class="truncate text-xs">{{ auth()->user()->email }}</span> <!-- E-mail do usuário -->
                                 </div>
                             </div>
                         </div>
                     </flux:menu.radio.group>
 
                     <flux:menu.separator />
+                    <!-- Separador visual entre os grupos de menus -->
 
                     <flux:menu.radio.group>
-                        <flux:menu.item :href="route('settings.profile')" icon="cog" wire:navigate>{{ __('Settings') }}</flux:menu.item>
+                        <!-- Link para a página de configurações do perfil -->
+                        <flux:menu.item :href="route('settings.profile')" icon="cog" wire:navigate>
+                            {{ __('Settings') }} <!-- Texto do menu: Configurações -->
+                        </flux:menu.item>
                     </flux:menu.radio.group>
 
                     <flux:menu.separator />
+                    <!-- Outro separador visual -->
 
                     <form method="POST" action="{{ route('logout') }}" class="w-full">
-                        @csrf
+                        @csrf <!-- Token CSRF para segurança no logout -->
+                        <!-- Botão para logout -->
                         <flux:menu.item as="button" type="submit" icon="arrow-right-start-on-rectangle" class="w-full">
-                            {{ __('Log Out') }}
+                            {{ __('Log Out') }} <!-- Texto do botão: Sair -->
                         </flux:menu.item>
                     </form>
                 </flux:menu>
@@ -102,36 +111,45 @@
 
                 <flux:menu>
                     <flux:menu.radio.group>
+                        <!-- Exibe as informações do usuário logado, como iniciais, nome e e-mail -->
                         <div class="p-0 text-sm font-normal">
                             <div class="flex items-center gap-2 px-1 py-1.5 text-start text-sm">
+                                <!-- Avatar do usuário com as iniciais -->
                                 <span class="relative flex h-8 w-8 shrink-0 overflow-hidden rounded-lg">
                                     <span
                                         class="flex h-full w-full items-center justify-center rounded-lg bg-neutral-200 text-black dark:bg-neutral-700 dark:text-white"
                                     >
-                                        {{ auth()->user()->initials() }}
+                                        {{ auth()->user()->initials() }} <!-- Iniciais do usuário -->
                                     </span>
                                 </span>
 
+                                <!-- Informações do usuário: nome e e-mail -->
                                 <div class="grid flex-1 text-start text-sm leading-tight">
-                                    <span class="truncate font-semibold">{{ auth()->user()->name }}</span>
-                                    <span class="truncate text-xs">{{ auth()->user()->email }}</span>
+                                    <span class="truncate font-semibold">{{ auth()->user()->name }}</span> <!-- Nome do usuário -->
+                                    <span class="truncate text-xs">{{ auth()->user()->email }}</span> <!-- E-mail do usuário -->
                                 </div>
                             </div>
                         </div>
                     </flux:menu.radio.group>
 
                     <flux:menu.separator />
+                    <!-- Separador visual entre os grupos de menus -->
 
                     <flux:menu.radio.group>
-                        <flux:menu.item :href="route('settings.profile')" icon="cog" wire:navigate>{{ __('Settings') }}</flux:menu.item>
+                        <!-- Link para a página de configurações do perfil -->
+                        <flux:menu.item :href="route('settings.profile')" icon="cog" wire:navigate>
+                            {{ __('Settings') }} <!-- Texto do menu: Configurações -->
+                        </flux:menu.item>
                     </flux:menu.radio.group>
 
                     <flux:menu.separator />
+                    <!-- Outro separador visual -->
 
                     <form method="POST" action="{{ route('logout') }}" class="w-full">
-                        @csrf
+                        @csrf <!-- Token CSRF para segurança no logout -->
+                        <!-- Botão para logout -->
                         <flux:menu.item as="button" type="submit" icon="arrow-right-start-on-rectangle" class="w-full">
-                            {{ __('Log Out') }}
+                            {{ __('Log Out') }} <!-- Texto do botão: Sair -->
                         </flux:menu.item>
                     </form>
                 </flux:menu>
