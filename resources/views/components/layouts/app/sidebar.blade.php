@@ -13,18 +13,18 @@
 
             <flux:navlist variant="outline">
                 <flux:navlist.group :heading="__('Platform')" class="grid">
+                    
                     <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>
                         {{ __('Dashboard') }}
                     </flux:navlist.item>
 
-    {{-- 👇 Adicione aqui o novo botão --}}
-    <flux:navlist.item icon="clipboard-document" :href="route('welcome')" :current="request()->routeIs('welcome')" wire:navigate>
-        {{ __('Início') }}
-    </flux:navlist.item>
+                    <flux:navlist.item icon="clipboard-document" :href="route('welcome')" :current="request()->routeIs('welcome')" wire:navigate>
+                        {{ __('Início') }}    
+                    </flux:navlist.item>
 
-    <flux:navlist.item icon="circle-help" :href="route('instrucoes')" :current="request()->routeIs('instrucoes')" wire:navigate>
-    {{ __('Instruções') }}
-</flux:navlist.item>
+                    <flux:navlist.item icon="circle-help" :href="route('instrucoes')" :current="request()->routeIs('instrucoes')" wire:navigate>
+                        {{ __('Instruções') }}
+                    </flux:navlist.item>
 
 
                 </flux:navlist.group>
