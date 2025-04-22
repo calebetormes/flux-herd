@@ -5,11 +5,12 @@ use Livewire\Volt\Volt;
 
 use App\Livewire\Pages\Instrucoes;
 
-Route::get('/', Instrucoes::class)->name('instrucoes');
+Route::get('/instrucoes', Instrucoes::class)->name('instrucoes');
+Route::get('/welcome', Instrucoes::class)->name('welcome');
 
-Route::get('/home', function () {
+Route::get('/', function () {
     return view('welcome');
-})->name('welcome');
+})->name('home');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
