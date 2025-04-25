@@ -5,6 +5,8 @@ use Livewire\Volt\Volt;
 
 use App\Livewire\Pages\Instrucoes;
 
+
+
 Route::get('/instrucoes', Instrucoes::class)->name('instrucoes');
 Route::get('/welcome', Instrucoes::class)->name('welcome');
 
@@ -15,12 +17,11 @@ Route::get('/', function () {
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
-
-Volt::route('users/novo', 'users.create')
+ 
+use App\Livewire\Users\CreateUser;
+Route::get('/users/novo', CreateUser::class)
     ->middleware(['auth', 'role:admin'])
     ->name('users.create');
-
-Volt::route('teste', 'teste')->name('teste');
 
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
