@@ -1,7 +1,4 @@
 <x-table>
-
-
-
     <thead class="bg-zinc-800 text-xs uppercase text-zinc-400 font-semibold tracking-wider">
         <x-table.row hover="false">
             <x-table.cell>Nome</x-table.cell>
