@@ -32,7 +32,11 @@ Route::middleware(['auth'])->group(function () {
 });
 
 
+use App\Livewire\Users\ListUsers;
 
+Route::get('/users', ListUsers::class)
+    ->middleware(['auth', 'role:admin'])
+    ->name('users.index');
 
 
 require __DIR__.'/auth.php';
