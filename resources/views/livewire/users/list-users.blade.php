@@ -1,35 +1,30 @@
-<div>
-<div class="max-w-6xl mx-auto p-6 space-y-6">
+<x-table>
 
-    {{-- Botão Novo Usuário --}}
-    <div class="flex justify-end">
-        <a href="{{ route('users.create') }}" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md font-semibold">
-            Novo Usuário
-        </a>
-    </div>
 
-    {{-- Tabela de Usuários --}}
-    <div class="overflow-x-auto">
-        <table class="w-full table-auto border-collapse bg-zinc-900 text-white rounded-md overflow-hidden">
-            <thead class="bg-zinc-800">
-                <tr>
-                    <th class="px-4 py-2 text-left">Nome</th>
-                    <th class="px-4 py-2 text-left">Email</th>
-                    <th class="px-4 py-2 text-left">Perfil</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($users as $user)
-                    <tr class="border-t border-zinc-700 hover:bg-zinc-800">
-                        <td class="px-4 py-2">{{ $user->name }}</td>
-                        <td class="px-4 py-2">{{ $user->email }}</td>
-                        <td class="px-4 py-2">{{ ucfirst(optional($user->role)->name ?? '-') }}</td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
 
-</div>
+    <thead class="bg-zinc-800 text-xs uppercase text-zinc-400 font-semibold tracking-wider">
+        <x-table.row hover="false">
+            <x-table.cell>Nome</x-table.cell>
+            <x-table.cell>Email</x-table.cell>
+            <x-table.cell>Perfil</x-table.cell>
+        </x-table.row>
+    </thead>
 
-</div>
+    <tbody class="divide-y divide-zinc-700">
+        @forelse ($users as $user)
+            <x-table.row>
+                <x-table.cell>{{ $user->name }}</x-table.cell>
+                <x-table.cell>{{ $user->email }}</x-table.cell>
+                <x-table.cell>{{ ucfirst(optional($user->role)->name ?? '-') }}</x-table.cell>
+            </x-table.row>
+        @empty
+            <x-table.row>
+                <x-table.cell colspan="3" class="text-center text-zinc-400">
+                    Nenhum usuário encontrado.
+                </x-table.cell>
+            </x-table.row>
+        @endforelse
+        
+    </tbody>
+
+</x-table>
