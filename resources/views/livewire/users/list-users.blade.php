@@ -1,27 +1,25 @@
-<x-table>
-    <thead class="bg-zinc-800 text-xs uppercase text-zinc-400 font-semibold tracking-wider">
-        <x-table.row hover="false">
-            <x-table.cell>Nome</x-table.cell>
-            <x-table.cell>Email</x-table.cell>
-            <x-table.cell>Perfil</x-table.cell>
-        </x-table.row>
-    </thead>
+<x-table.table>
+    <x-table.thead>
+        <x-table.tr>
+            <x-table.th>Nome</x-table.th>
+            <x-table.th>Email</x-table.th>
+            <x-table.th>Perfil</x-table.th>
+        </x-table.tr>
+    </x-table.thead>
 
-    <tbody class="divide-y divide-zinc-700">
+    <x-table.tbody>
         @forelse ($users as $user)
-            <x-table.row>
-                <x-table.cell>{{ $user->name }}</x-table.cell>
-                <x-table.cell>{{ $user->email }}</x-table.cell>
-                <x-table.cell>{{ ucfirst(optional($user->role)->name ?? '-') }}</x-table.cell>
-            </x-table.row>
+            <x-table.tr>
+                <x-table.td>{{ $user->name }}</x-table.td>
+                <x-table.td>{{ $user->email }}</x-table.td>
+                <x-table.td>{{ ucfirst(optional($user->role)->name ?? '-') }}</x-table.td>
+            </x-table.tr>
         @empty
-            <x-table.row>
-                <x-table.cell colspan="3" class="text-center text-zinc-400">
+            <x-table.tr>
+                <x-table.td colspan="3" class="text-center text-gray-400">
                     Nenhum usuário encontrado.
-                </x-table.cell>
-            </x-table.row>
+                </x-table.td>
+            </x-table.tr>
         @endforelse
-        
-    </tbody>
-
-</x-table>
+    </x-table.tbody>
+</x-table.table>
